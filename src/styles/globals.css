@@ -314,6 +314,35 @@
   --radius-pill: var(--radius-pill);
 }
 
+/* ── View Transitions (Nothing Phone-style circular reveal) ── */
+/* Must opt-in with view-transition-name: root on the page root */
+:root {
+  view-transition-name: root;
+}
+
+::view-transition-group(root) {
+  animation-duration: 360ms;
+}
+
+/* Disable default cross-fade — our per-click keyframe overrides these */
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+}
+
+/* Honor reduced-motion: skip animation, instant switch */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-image-pair(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 /* ═══════════════════════════════════════════
    Global base styles
    ═══════════════════════════════════════════ */
@@ -321,12 +350,19 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  /* Smooth color transition when switching themes */
+}
+
+/* Smooth color transition ONLY on interactive components (buttons, links).
+   The page-level theme switch uses a clip-path ripple overlay instead,
+   so we do NOT apply blanket color transitions to every element —
+   that would fight the ripple reveal. */
+a, button {
   transition:
-    background-color 300ms cubic-bezier(0.4,0,0.2,1),
-    border-color     300ms cubic-bezier(0.4,0,0.2,1),
-    color            200ms cubic-bezier(0.4,0,0.2,1),
-    box-shadow       300ms cubic-bezier(0.4,0,0.2,1);
+    background-color 150ms cubic-bezier(0.4,0,0.2,1),
+    border-color     150ms cubic-bezier(0.4,0,0.2,1),
+    color            120ms cubic-bezier(0.4,0,0.2,1),
+    box-shadow       150ms cubic-bezier(0.4,0,0.2,1),
+    opacity          150ms cubic-bezier(0.4,0,0.2,1);
 }
 
 html {

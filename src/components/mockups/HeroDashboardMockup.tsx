@@ -34,9 +34,9 @@ export function HeroDashboardMockup() {
     >
       {/* Browser chrome */}
       <div className="flex items-center gap-1.5 px-4 py-2.5 border-b" style={{ backgroundColor: 'var(--color-bg-tertiary)', borderColor: 'var(--color-border-subtle)' }}>
-        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#3f3f46' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#3f3f46' }} />
-        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: '#3f3f46' }} />
+        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--color-border-strong)' }} />
+        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--color-border-strong)' }} />
+        <div className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--color-border-strong)' }} />
         <div className="ml-2 flex-1 h-5 rounded-[var(--radius-sm)] flex items-center px-2" style={{ backgroundColor: 'var(--color-surface-hover)', maxWidth: 240 }}>
           <span className="text-[9px]" style={{ color: 'var(--color-text-disabled)' }}>app.acadflow.io/dashboard</span>
         </div>

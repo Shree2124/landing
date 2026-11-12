@@ -46,20 +46,42 @@ interface BadgeProps {
 }
 
 export function Badge({ children, variant = 'default', className }: BadgeProps) {
-  const variants = {
-    default: 'bg-[var(--color-surface-elevated)] text-[var(--color-text-secondary)] border-[var(--color-border-default)]',
-    success: 'bg-[var(--color-success)]/10 text-[var(--color-success)] border-[var(--color-success)]/20',
-    warning: 'bg-[var(--color-warning)]/10 text-[var(--color-warning)] border-[var(--color-warning)]/20',
-    error:   'bg-[var(--color-error)]/10 text-[var(--color-error)] border-[var(--color-error)]/20',
-    info:    'bg-[var(--color-info)]/10 text-[var(--color-info)] border-[var(--color-info)]/20',
+  const styles: Record<string, React.CSSProperties> = {
+    default: {
+      backgroundColor: 'var(--color-surface-elevated)',
+      color: 'var(--color-text-secondary)',
+      borderColor: 'var(--color-border-default)',
+    },
+    success: {
+      backgroundColor: 'color-mix(in srgb, var(--color-success) 12%, transparent)',
+      color: 'var(--color-success)',
+      borderColor: 'color-mix(in srgb, var(--color-success) 25%, transparent)',
+    },
+    warning: {
+      backgroundColor: 'color-mix(in srgb, var(--color-warning) 12%, transparent)',
+      color: 'var(--color-warning)',
+      borderColor: 'color-mix(in srgb, var(--color-warning) 25%, transparent)',
+    },
+    error: {
+      backgroundColor: 'color-mix(in srgb, var(--color-error) 12%, transparent)',
+      color: 'var(--color-error)',
+      borderColor: 'color-mix(in srgb, var(--color-error) 25%, transparent)',
+    },
+    info: {
+      backgroundColor: 'color-mix(in srgb, var(--color-info) 12%, transparent)',
+      color: 'var(--color-info)',
+      borderColor: 'color-mix(in srgb, var(--color-info) 25%, transparent)',
+    },
   };
 
   return (
-    <span className={clsx(
-      'inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium rounded-[var(--radius-pill)] border',
-      variants[variant],
-      className
-    )}>
+    <span
+      className={clsx(
+        'inline-flex items-center gap-1.5 px-2.5 py-0.5 text-xs font-medium rounded-[var(--radius-pill)] border shadow-xs',
+        className
+      )}
+      style={styles[variant]}
+    >
       {children}
     </span>
   );

@@ -47,7 +47,7 @@ function StudentDashboard() {
         </div>
         <div className="flex items-center gap-2">
           <Bell size={11} style={{ color: 'var(--color-text-muted)' }} />
-          <div className="flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-pill)]" style={{ backgroundColor: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)' }}>
+          <div className="flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-pill)]" style={{ backgroundColor: 'color-mix(in srgb, var(--color-warning) 12%, transparent)', border: '1px solid color-mix(in srgb, var(--color-warning) 30%, transparent)' }}>
             <Star size={8} style={{ color: 'var(--color-warning)' }} />
             <span style={{ color: 'var(--color-warning)', fontSize: 9 }}>1,240 pts</span>
           </div>
