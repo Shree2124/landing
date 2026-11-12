@@ -145,3 +145,4 @@ export function CountUp({ to, suffix = '', duration = 1.5 }: { to: number; suffi
 
   return <span ref={ref}>{val.toLocaleString()}{suffix}</span>;
 }
+

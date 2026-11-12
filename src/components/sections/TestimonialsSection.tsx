@@ -1,7 +1,9 @@
 // ============================================================
-// TestimonialsSection
+// TestimonialsSection — stagger + hover lift
 // ============================================================
+import { motion } from 'framer-motion';
 import { SectionLabel, SectionHeading, Card } from '../ui';
+import { Reveal, StaggerReveal, StaggerItem } from '../../lib/animations';
 
 const TESTIMONIALS = [
   {
@@ -44,47 +46,58 @@ const TESTIMONIALS = [
 
 export function TestimonialsSection() {
   return (
-    <section className="py-24">
+    <section className="py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center gap-4 mb-16">
+        <Reveal className="flex flex-col items-center text-center gap-4 mb-16">
           <SectionLabel>Testimonials</SectionLabel>
-          <SectionHeading className="text-3xl sm:text-4xl">
-            Trusted by educators and students
-          </SectionHeading>
-        </div>
+          <SectionHeading className="text-3xl sm:text-4xl">Trusted by educators and students</SectionHeading>
+        </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <StaggerReveal className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {TESTIMONIALS.map(({ quote, author, role, initials }) => (
-            <Card key={author} className="p-6 flex flex-col gap-5 hover:bg-[var(--color-surface-hover)] transition-colors" style={{ transitionDuration: 'var(--duration-standard)' }}>
-              {/* Quote marks */}
-              <div className="text-3xl font-serif leading-none" style={{ color: 'var(--color-border-strong)' }}>"</div>
-              <p className="text-sm flex-1" style={{ color: 'var(--color-text-secondary)', lineHeight: 'var(--leading-relaxed)' }}>
-                {quote}
-              </p>
-              <div
-                className="flex items-center gap-3 pt-4 border-t"
-                style={{ borderColor: 'var(--color-border-subtle)' }}
+            <StaggerItem key={author}>
+              <motion.div
+                whileHover={{ y: -6 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="h-full"
               >
-                <div
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0"
-                  style={{
-                    backgroundColor: 'var(--color-surface-elevated)',
-                    border: '1px solid var(--color-border-default)',
-                    color: 'var(--color-text-secondary)',
-                  }}
-                >
-                  {initials}
-                </div>
-                <div>
-                  <div className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>{author}</div>
-                  <div className="text-xs" style={{ color: 'var(--color-text-muted)' }}>{role}</div>
-                </div>
-              </div>
-            </Card>
+                <Card className="p-6 flex flex-col gap-5 h-full transition-colors" style={{ transitionDuration: 'var(--duration-standard)' }}>
+                  {/* Animated quote mark */}
+                  <motion.div
+                    className="text-3xl font-serif leading-none select-none"
+                    style={{ color: 'var(--color-border-strong)' }}
+                    animate={{ opacity: [0.4, 0.8, 0.4] }}
+                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    "
+                  </motion.div>
+                  <p className="text-sm flex-1" style={{ color: 'var(--color-text-secondary)', lineHeight: '1.65' }}>
+                    {quote}
+                  </p>
+                  <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: 'var(--color-border-subtle)' }}>
+                    <motion.div
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                      className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-medium flex-shrink-0"
+                      style={{
+                        backgroundColor: 'var(--color-surface-elevated)',
+                        border: '1px solid var(--color-border-default)',
+                        color: 'var(--color-text-secondary)',
+                      }}
+                    >
+                      {initials}
+                    </motion.div>
+                    <div>
+                      <div className="text-sm font-medium" style={{ color: 'var(--color-text-primary)' }}>{author}</div>
+                      <div className="text-xs" style={{ color: 'var(--color-text-muted)' }}>{role}</div>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerReveal>
       </div>
     </section>
   );
 }
-

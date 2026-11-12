@@ -1,22 +1,38 @@
 // ============================================================
-// DashboardPreviewSection — Student & Teacher dashboards
+// DashboardPreviewSection — animated tab switch
 // ============================================================
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { SectionLabel, SectionHeading, Card } from '../ui';
 import {
   CheckCircle, Calendar, BookOpen, TrendingUp,
   Star, FileText, Users, Plus, ChevronRight, Bell, Award
 } from 'lucide-react';
+import { Reveal } from '../../lib/animations';
 
 function StatusDot({ status }: { status: 'done' | 'pending' | 'late' }) {
   const colors = { done: 'var(--color-success)', pending: 'var(--color-warning)', late: 'var(--color-error)' };
-  return <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: colors[status] }} />;
+  return (
+    <motion.span
+      className="w-1.5 h-1.5 rounded-full inline-block"
+      style={{ backgroundColor: colors[status] }}
+      animate={status === 'pending' ? { opacity: [1, 0.3, 1] } : {}}
+      transition={{ duration: 1.5, repeat: Infinity }}
+    />
+  );
 }
 
 function MiniBar({ pct }: { pct: number }) {
   return (
     <div className="h-1 w-full rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-surface-active)' }}>
-      <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: 'var(--color-primary)' }} />
+      <motion.div
+        className="h-full rounded-full"
+        style={{ backgroundColor: 'var(--color-primary)' }}
+        initial={{ width: 0 }}
+        whileInView={{ width: `${pct}%` }}
+        transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        viewport={{ once: true }}
+      />
     </div>
   );
 }
@@ -24,7 +40,6 @@ function MiniBar({ pct }: { pct: number }) {
 function StudentDashboard() {
   return (
     <div className="rounded-[var(--radius-xl)] border overflow-hidden text-[10px]" style={{ backgroundColor: 'var(--color-surface-elevated)', borderColor: 'var(--color-border-default)', boxShadow: 'var(--shadow-elevated)' }}>
-      {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b" style={{ backgroundColor: 'var(--color-bg-tertiary)', borderColor: 'var(--color-border-subtle)' }}>
         <div>
           <div style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: 11 }}>Good morning, Arjun 👋</div>
@@ -32,7 +47,7 @@ function StudentDashboard() {
         </div>
         <div className="flex items-center gap-2">
           <Bell size={11} style={{ color: 'var(--color-text-muted)' }} />
-          <div className="flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-pill)]" style={{ backgroundColor: 'var(--color-success)}/10', border: '1px solid var(--color-success)' }}>
+          <div className="flex items-center gap-1 px-2 py-0.5 rounded-[var(--radius-pill)]" style={{ backgroundColor: 'rgba(234,179,8,0.1)', border: '1px solid rgba(234,179,8,0.3)' }}>
             <Star size={8} style={{ color: 'var(--color-warning)' }} />
             <span style={{ color: 'var(--color-warning)', fontSize: 9 }}>1,240 pts</span>
           </div>
@@ -40,22 +55,26 @@ function StudentDashboard() {
       </div>
 
       <div className="p-4 flex flex-col gap-3">
-        {/* Stats */}
         <div className="grid grid-cols-3 gap-2">
           {[
             { label: 'Attendance', value: '94%', icon: Calendar },
             { label: 'Submitted', value: '12/14', icon: CheckCircle },
             { label: 'Resources', value: '48', icon: BookOpen },
           ].map(({ label, value, icon: Icon }) => (
-            <div key={label} className="rounded-[var(--radius-lg)] p-2 border flex flex-col gap-1" style={{ backgroundColor: 'var(--color-surface-default)', borderColor: 'var(--color-border-subtle)' }}>
+            <motion.div
+              key={label}
+              whileHover={{ scale: 1.03, y: -2 }}
+              transition={{ type: 'spring', stiffness: 400 }}
+              className="rounded-[var(--radius-lg)] p-2 border flex flex-col gap-1 cursor-default"
+              style={{ backgroundColor: 'var(--color-surface-default)', borderColor: 'var(--color-border-subtle)' }}
+            >
               <Icon size={9} style={{ color: 'var(--color-text-muted)' }} />
               <div style={{ color: 'var(--color-text-primary)', fontWeight: 700, fontSize: 13 }}>{value}</div>
               <div style={{ color: 'var(--color-text-disabled)' }}>{label}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Upcoming assignments */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <span style={{ color: 'var(--color-text-secondary)', fontWeight: 500 }}>Upcoming</span>
@@ -77,7 +96,6 @@ function StudentDashboard() {
           ))}
         </div>
 
-        {/* Recent study resources */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <span style={{ color: 'var(--color-text-secondary)', fontWeight: 500 }}>Recent Resources</span>
@@ -102,35 +120,43 @@ function StudentDashboard() {
 function TeacherDashboard() {
   return (
     <div className="rounded-[var(--radius-xl)] border overflow-hidden text-[10px]" style={{ backgroundColor: 'var(--color-surface-elevated)', borderColor: 'var(--color-border-default)', boxShadow: 'var(--shadow-elevated)' }}>
-      {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 border-b" style={{ backgroundColor: 'var(--color-bg-tertiary)', borderColor: 'var(--color-border-subtle)' }}>
         <div>
           <div style={{ color: 'var(--color-text-primary)', fontWeight: 600, fontSize: 11 }}>Faculty Dashboard</div>
           <div style={{ color: 'var(--color-text-muted)', fontSize: 9 }}>Dr. Priya Nair · CS Department</div>
         </div>
-        <button className="flex items-center gap-1 px-2 py-1 rounded-[var(--radius-md)]" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-primary-foreground)' }}>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="flex items-center gap-1 px-2 py-1 rounded-[var(--radius-md)]"
+          style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-primary-foreground)' }}
+        >
           <Plus size={9} /> <span style={{ fontSize: 9 }}>New Assignment</span>
-        </button>
+        </motion.button>
       </div>
 
       <div className="p-4 flex flex-col gap-3">
-        {/* Batch stats */}
         <div className="grid grid-cols-4 gap-2">
           {[
             { label: 'Batches',   value: '4',   icon: Users },
             { label: 'Students', value: '161',  icon: Award },
-            { label: 'Active Assign.', value: '8', icon: FileText },
-            { label: 'Avg. Submit', value: '78%', icon: TrendingUp },
+            { label: 'Active',   value: '8',    icon: FileText },
+            { label: 'Avg Sub.', value: '78%',  icon: TrendingUp },
           ].map(({ label, value, icon: Icon }) => (
-            <div key={label} className="rounded-[var(--radius-lg)] p-2 border flex flex-col gap-1" style={{ backgroundColor: 'var(--color-surface-default)', borderColor: 'var(--color-border-subtle)' }}>
+            <motion.div
+              key={label}
+              whileHover={{ scale: 1.04, y: -2 }}
+              transition={{ type: 'spring', stiffness: 400 }}
+              className="rounded-[var(--radius-lg)] p-2 border flex flex-col gap-1 cursor-default"
+              style={{ backgroundColor: 'var(--color-surface-default)', borderColor: 'var(--color-border-subtle)' }}
+            >
               <Icon size={9} style={{ color: 'var(--color-text-muted)' }} />
               <div style={{ color: 'var(--color-text-primary)', fontWeight: 700, fontSize: 13 }}>{value}</div>
               <div style={{ color: 'var(--color-text-disabled)' }}>{label}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Assignment tracking */}
         <div>
           <div className="flex items-center justify-between mb-2">
             <span style={{ color: 'var(--color-text-secondary)', fontWeight: 500 }}>Assignment Tracking</span>
@@ -154,7 +180,6 @@ function TeacherDashboard() {
           ))}
         </div>
 
-        {/* Recent activity */}
         <div>
           <div className="mb-2" style={{ color: 'var(--color-text-secondary)', fontWeight: 500 }}>Recent Activity</div>
           {[
@@ -174,18 +199,21 @@ export function DashboardPreviewSection() {
   const [active, setActive] = useState<'student' | 'teacher'>('student');
 
   return (
-    <section id="dashboard" className="py-24" style={{ backgroundColor: 'var(--color-bg-secondary)' }}>
+    <section id="dashboard" className="py-24 relative overflow-hidden" style={{ backgroundColor: 'var(--color-bg-secondary)' }}>
+      <div
+        className="absolute top-0 inset-x-0 h-px pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, transparent, var(--color-border-subtle), transparent)' }}
+      />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center gap-4 mb-12">
+        <Reveal className="flex flex-col items-center text-center gap-4 mb-12">
           <SectionLabel>Role Dashboards</SectionLabel>
-          <SectionHeading className="text-3xl sm:text-4xl">
-            Tailored for every role
-          </SectionHeading>
+          <SectionHeading className="text-3xl sm:text-4xl">Tailored for every role</SectionHeading>
           <p className="text-base max-w-lg" style={{ color: 'var(--color-text-secondary)' }}>
             Students and faculty each get a focused workspace that surfaces only what matters to them.
           </p>
 
-          {/* Tab switcher */}
+          {/* Animated tab switcher */}
           <div
             className="flex p-1 rounded-[var(--radius-lg)] mt-2"
             style={{ backgroundColor: 'var(--color-surface-elevated)', border: '1px solid var(--color-border-default)' }}
@@ -194,23 +222,40 @@ export function DashboardPreviewSection() {
               <button
                 key={tab}
                 onClick={() => setActive(tab)}
-                className="px-5 py-2 text-sm font-medium rounded-[var(--radius-md)] capitalize transition-all"
+                className="relative px-5 py-2 text-sm font-medium rounded-[var(--radius-md)] capitalize transition-colors"
                 style={{
-                  backgroundColor: active === tab ? 'var(--color-surface-active)' : 'transparent',
                   color: active === tab ? 'var(--color-text-primary)' : 'var(--color-text-muted)',
                   transitionDuration: 'var(--duration-fast)',
                 }}
               >
-                {tab} View
+                {active === tab && (
+                  <motion.div
+                    layoutId="tab-pill"
+                    className="absolute inset-0 rounded-[var(--radius-md)]"
+                    style={{ backgroundColor: 'var(--color-surface-active)' }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{tab} View</span>
               </button>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         <div className="max-w-2xl mx-auto">
           <Card elevated>
             <div className="p-4">
-              {active === 'student' ? <StudentDashboard /> : <TeacherDashboard />}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3, ease: 'easeInOut' }}
+                >
+                  {active === 'student' ? <StudentDashboard /> : <TeacherDashboard />}
+                </motion.div>
+              </AnimatePresence>
             </div>
           </Card>
         </div>

@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles, Shield, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button, Badge, SectionLabel } from '../ui';
 import { HeroDashboardMockup } from '../mockups/HeroDashboardMockup';
-import { fadeUp, fadeLeft, fadeRight, staggerContainer, CountUp } from '../../lib/animations';
+import { fadeUp, fadeRight, staggerContainer, CountUp } from '../../lib/animations';
 
 const STATS = [
   { value: 2400, suffix: '+', label: 'Educators' },
@@ -103,7 +103,7 @@ export function HeroSection() {
                     WebkitTextStroke: '1px var(--color-border-strong)',
                     color: 'transparent',
                   }}
-                  animate={{ WebkitTextStroke: ['1px var(--color-border-strong)', '1px var(--color-primary)', '1px var(--color-border-strong)'] }}
+                  animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
                 >
                   academia
