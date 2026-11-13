@@ -9,9 +9,9 @@ import { fadeUp, fadeRight, staggerContainer, CountUp } from '../../lib/animatio
 
 const STATS = [
   { value: 2400, suffix: '+', label: 'Educators' },
-  { value: 180,  suffix: '+', label: 'Institutions' },
-  { value: 98,   suffix: '%', label: 'Satisfaction' },
-  { value: 1,    suffix: 'M+', label: 'Submissions tracked' },
+  { value: 180, suffix: '+', label: 'Institutions' },
+  { value: 98, suffix: '%', label: 'Satisfaction' },
+  { value: 1, suffix: 'M+', label: 'Submissions tracked' },
 ];
 
 export function HeroSection() {
@@ -100,7 +100,7 @@ export function HeroSection() {
                 <motion.span
                   className="relative inline-block"
                   style={{
-                    WebkitTextStroke: '1px var(--color-border-strong)',
+                    WebkitTextStroke: '2px var(--color-border-strong)',
                     color: 'transparent',
                   }}
                   animate={{ opacity: [0.7, 1, 0.7] }}

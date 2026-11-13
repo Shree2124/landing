@@ -11,65 +11,65 @@
 :root,
 [data-theme="dark"] {
   /* Background */
-  --color-bg-primary:   #050505;
+  --color-bg-primary: #050505;
   --color-bg-secondary: #0b0b0b;
-  --color-bg-tertiary:  #111111;
+  --color-bg-tertiary: #111111;
 
   /* Surface */
-  --color-surface-default:  #111111;
+  --color-surface-default: #111111;
   --color-surface-elevated: #181818;
-  --color-surface-hover:    #222222;
-  --color-surface-active:   #292929;
+  --color-surface-hover: #222222;
+  --color-surface-active: #292929;
 
   /* Text */
-  --color-text-primary:   #ffffff;
+  --color-text-primary: #ffffff;
   --color-text-secondary: #a1a1aa;
-  --color-text-muted:     #71717a;
-  --color-text-disabled:  #52525b;
-  --color-text-inverse:   #050505;
+  --color-text-muted: #71717a;
+  --color-text-disabled: #52525b;
+  --color-text-inverse: #050505;
 
   /* Border */
-  --color-border-default: rgba(255,255,255,0.10);
-  --color-border-subtle:  rgba(255,255,255,0.06);
-  --color-border-strong:  rgba(255,255,255,0.20);
+  --color-border-default: rgba(255, 255, 255, 0.10);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-strong: rgb(189, 177, 177);
 
   /* Primary interactive */
-  --color-primary:            #ffffff;
-  --color-primary-hover:      #e5e5e5;
-  --color-primary-active:     #d4d4d4;
+  --color-primary: #ffffff;
+  --color-primary-hover: #e5e5e5;
+  --color-primary-active: #d4d4d4;
   --color-primary-foreground: #050505;
 
   /* Secondary interactive */
-  --color-secondary:            #222222;
-  --color-secondary-hover:      #303030;
-  --color-secondary-active:     #383838;
+  --color-secondary: #222222;
+  --color-secondary-hover: #303030;
+  --color-secondary-active: #383838;
   --color-secondary-foreground: #ffffff;
 
   /* Input */
-  --color-input-bg:          #111111;
-  --color-input-border:      #303030;
+  --color-input-bg: #111111;
+  --color-input-border: #303030;
   --color-input-placeholder: #71717a;
-  --color-input-focus:       #ffffff;
+  --color-input-focus: #ffffff;
 
   /* Overlay */
-  --color-overlay:       rgba(0,0,0,0.70);
-  --color-overlay-light: rgba(0,0,0,0.35);
+  --color-overlay: rgba(0, 0, 0, 0.70);
+  --color-overlay-light: rgba(0, 0, 0, 0.35);
 
   /* Navigation */
-  --color-nav-bg:     rgba(5,5,5,0.80);
-  --color-nav-border: rgba(255,255,255,0.08);
+  --color-nav-bg: rgba(5, 5, 5, 0.80);
+  --color-nav-border: rgba(255, 255, 255, 0.08);
 
   /* Card */
-  --color-card-bg:     #111111;
-  --color-card-border: rgba(255,255,255,0.08);
+  --color-card-bg: #111111;
+  --color-card-border: rgba(255, 255, 255, 0.08);
 
   /* Modal / Popup / Dropdown / Tooltip */
-  --color-modal-bg:    #181818;
+  --color-modal-bg: #181818;
   --color-dropdown-bg: #181818;
-  --color-tooltip-bg:  #222222;
+  --color-tooltip-bg: #222222;
 
   /* Focus ring */
-  --color-focus-ring: rgba(255,255,255,0.40);
+  --color-focus-ring: rgba(255, 255, 255, 0.40);
 
   /* Scrollbar */
   --color-scrollbar-track: #0b0b0b;
@@ -78,8 +78,8 @@
   /* Status */
   --color-success: #22c55e;
   --color-warning: #eab308;
-  --color-error:   #ef4444;
-  --color-info:    #3b82f6;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
 
   /* Chart palette (8 stops) */
   --color-chart-1: #ffffff;
@@ -92,40 +92,51 @@
   --color-chart-8: #09090b;
 
   /* ── Typography ── */
-  --font-sans:    'Inter', system-ui, -apple-system, sans-serif;
-  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
 
-  --text-xs:   0.75rem;    /* 12px */
-  --text-sm:   0.8125rem;  /* 13px */
-  --text-base: 0.9375rem;  /* 15px */
-  --text-lg:   1.0625rem;  /* 17px */
-  --text-xl:   1.25rem;    /* 20px */
-  --text-2xl:  1.5rem;     /* 24px */
-  --text-3xl:  1.875rem;   /* 30px */
-  --text-4xl:  2.25rem;    /* 36px */
-  --text-5xl:  3rem;       /* 48px */
-  --text-6xl:  3.75rem;    /* 60px */
-  --text-7xl:  4.5rem;     /* 72px */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-sm: 0.8125rem;
+  /* 13px */
+  --text-base: 0.9375rem;
+  /* 15px */
+  --text-lg: 1.0625rem;
+  /* 17px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-3xl: 1.875rem;
+  /* 30px */
+  --text-4xl: 2.25rem;
+  /* 36px */
+  --text-5xl: 3rem;
+  /* 48px */
+  --text-6xl: 3.75rem;
+  /* 60px */
+  --text-7xl: 4.5rem;
+  /* 72px */
 
-  --leading-tight:  1.2;
-  --leading-snug:   1.35;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
   --leading-normal: 1.5;
-  --leading-relaxed:1.65;
+  --leading-relaxed: 1.65;
 
-  --tracking-tight:  -0.04em;
-  --tracking-snug:   -0.02em;
+  --tracking-tight: -0.04em;
+  --tracking-snug: -0.02em;
   --tracking-normal: 0em;
-  --tracking-wide:   0.04em;
+  --tracking-wide: 0.04em;
 
   /* ── Spacing scale ── */
-  --space-1:  0.25rem;
-  --space-2:  0.5rem;
-  --space-3:  0.75rem;
-  --space-4:  1rem;
-  --space-5:  1.25rem;
-  --space-6:  1.5rem;
-  --space-8:  2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
@@ -134,92 +145,92 @@
   --space-32: 8rem;
 
   /* ── Border radius ── */
-  --radius-sm:   4px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
-  --radius-xl:   16px;
-  --radius-2xl:  20px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
   --radius-pill: 9999px;
 
   /* ── Shadows ── */
-  --shadow-card:     0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.6);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.4);
-  --shadow-modal:    0 24px 64px rgba(0,0,0,0.80), 0 8px 24px rgba(0,0,0,0.6);
-  --shadow-dropdown: 0 8px 24px rgba(0,0,0,0.70), 0 2px 8px rgba(0,0,0,0.5);
-  --shadow-floating: 0 16px 48px rgba(0,0,0,0.75);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.6);
+  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.80), 0 8px 24px rgba(0, 0, 0, 0.6);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.70), 0 2px 8px rgba(0, 0, 0, 0.5);
+  --shadow-floating: 0 16px 48px rgba(0, 0, 0, 0.75);
 
   /* ── Motion ── */
-  --duration-fast:     100ms;
+  --duration-fast: 100ms;
   --duration-standard: 200ms;
-  --duration-complex:  350ms;
-  --ease-standard:     cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-decelerate:   cubic-bezier(0, 0, 0.2, 1);
-  --ease-accelerate:   cubic-bezier(0.4, 0, 1, 1);
-  --ease-spring:       cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-complex: 350ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ── Light Monochrome (future) ── */
 [data-theme="light"] {
   /* Background */
-  --color-bg-primary:   #fafafa;
+  --color-bg-primary: #fafafa;
   --color-bg-secondary: #f4f4f5;
-  --color-bg-tertiary:  #e4e4e7;
+  --color-bg-tertiary: #e4e4e7;
 
   /* Surface */
-  --color-surface-default:  #ffffff;
+  --color-surface-default: #ffffff;
   --color-surface-elevated: #f9f9f9;
-  --color-surface-hover:    #f4f4f5;
-  --color-surface-active:   #e4e4e7;
+  --color-surface-hover: #f4f4f5;
+  --color-surface-active: #e4e4e7;
 
   /* Text */
-  --color-text-primary:   #09090b;
+  --color-text-primary: #09090b;
   --color-text-secondary: #52525b;
-  --color-text-muted:     #71717a;
-  --color-text-disabled:  #a1a1aa;
-  --color-text-inverse:   #fafafa;
+  --color-text-muted: #71717a;
+  --color-text-disabled: #a1a1aa;
+  --color-text-inverse: #fafafa;
 
   /* Border */
-  --color-border-default: rgba(0,0,0,0.10);
-  --color-border-subtle:  rgba(0,0,0,0.06);
-  --color-border-strong:  rgba(0,0,0,0.20);
+  --color-border-default: rgba(0, 0, 0, 0.10);
+  --color-border-subtle: rgba(0, 0, 0, 0.06);
+  --color-border-strong: rgba(0, 0, 0, 0.20);
 
   /* Primary interactive */
-  --color-primary:            #09090b;
-  --color-primary-hover:      #18181b;
-  --color-primary-active:     #27272a;
+  --color-primary: #09090b;
+  --color-primary-hover: #18181b;
+  --color-primary-active: #27272a;
   --color-primary-foreground: #fafafa;
 
   /* Secondary interactive */
-  --color-secondary:            #e4e4e7;
-  --color-secondary-hover:      #d4d4d8;
-  --color-secondary-active:     #c4c4c8;
+  --color-secondary: #e4e4e7;
+  --color-secondary-hover: #d4d4d8;
+  --color-secondary-active: #c4c4c8;
   --color-secondary-foreground: #09090b;
 
   /* Input */
-  --color-input-bg:          #ffffff;
-  --color-input-border:      #d4d4d8;
+  --color-input-bg: #ffffff;
+  --color-input-border: #d4d4d8;
   --color-input-placeholder: #a1a1aa;
-  --color-input-focus:       #09090b;
+  --color-input-focus: #09090b;
 
   /* Overlay */
-  --color-overlay:       rgba(0,0,0,0.50);
-  --color-overlay-light: rgba(0,0,0,0.20);
+  --color-overlay: rgba(0, 0, 0, 0.50);
+  --color-overlay-light: rgba(0, 0, 0, 0.20);
 
   /* Navigation */
-  --color-nav-bg:     rgba(250,250,250,0.90);
-  --color-nav-border: rgba(0,0,0,0.08);
+  --color-nav-bg: rgba(250, 250, 250, 0.90);
+  --color-nav-border: rgba(0, 0, 0, 0.08);
 
   /* Card */
-  --color-card-bg:     #ffffff;
-  --color-card-border: rgba(0,0,0,0.08);
+  --color-card-bg: #ffffff;
+  --color-card-border: rgba(0, 0, 0, 0.08);
 
   /* Modal / Popup / Dropdown / Tooltip */
-  --color-modal-bg:    #ffffff;
+  --color-modal-bg: #ffffff;
   --color-dropdown-bg: #ffffff;
-  --color-tooltip-bg:  #18181b;
+  --color-tooltip-bg: #18181b;
 
   /* Focus ring */
-  --color-focus-ring: rgba(9,9,11,0.30);
+  --color-focus-ring: rgba(9, 9, 11, 0.30);
 
   /* Scrollbar */
   --color-scrollbar-track: #f4f4f5;
@@ -228,8 +239,8 @@
   /* Status */
   --color-success: #16a34a;
   --color-warning: #ca8a04;
-  --color-error:   #dc2626;
-  --color-info:    #2563eb;
+  --color-error: #dc2626;
+  --color-info: #2563eb;
 
   /* Chart palette */
   --color-chart-1: #09090b;
@@ -242,11 +253,11 @@
   --color-chart-8: #f4f4f5;
 
   /* Shadows */
-  --shadow-card:     0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
-  --shadow-elevated: 0 4px 16px rgba(0,0,0,0.10), 0 2px 4px rgba(0,0,0,0.06);
-  --shadow-modal:    0 24px 64px rgba(0,0,0,0.20), 0 8px 24px rgba(0,0,0,0.12);
-  --shadow-dropdown: 0 8px 24px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
-  --shadow-floating: 0 16px 48px rgba(0,0,0,0.15);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-elevated: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 4px rgba(0, 0, 0, 0.06);
+  --shadow-modal: 0 24px 64px rgba(0, 0, 0, 0.20), 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-dropdown: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 16px 48px rgba(0, 0, 0, 0.15);
 }
 
 /* ═══════════════════════════════════════════
@@ -254,63 +265,63 @@
    Maps CSS vars → Tailwind utility classes
    ═══════════════════════════════════════════ */
 @theme {
-  --color-bg-primary:   var(--color-bg-primary);
+  --color-bg-primary: var(--color-bg-primary);
   --color-bg-secondary: var(--color-bg-secondary);
-  --color-bg-tertiary:  var(--color-bg-tertiary);
+  --color-bg-tertiary: var(--color-bg-tertiary);
 
-  --color-surface:         var(--color-surface-default);
+  --color-surface: var(--color-surface-default);
   --color-surface-elevated: var(--color-surface-elevated);
-  --color-surface-hover:   var(--color-surface-hover);
-  --color-surface-active:  var(--color-surface-active);
+  --color-surface-hover: var(--color-surface-hover);
+  --color-surface-active: var(--color-surface-active);
 
-  --color-text-primary:   var(--color-text-primary);
+  --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
-  --color-text-muted:     var(--color-text-muted);
-  --color-text-disabled:  var(--color-text-disabled);
-  --color-text-inverse:   var(--color-text-inverse);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-text-inverse: var(--color-text-inverse);
 
-  --color-border:        var(--color-border-default);
+  --color-border: var(--color-border-default);
   --color-border-subtle: var(--color-border-subtle);
   --color-border-strong: var(--color-border-strong);
 
-  --color-primary:            var(--color-primary);
-  --color-primary-hover:      var(--color-primary-hover);
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
   --color-primary-foreground: var(--color-primary-foreground);
 
-  --color-secondary:            var(--color-secondary);
-  --color-secondary-hover:      var(--color-secondary-hover);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-hover: var(--color-secondary-hover);
   --color-secondary-foreground: var(--color-secondary-foreground);
 
-  --color-input-bg:    var(--color-input-bg);
-  --color-input-border:var(--color-input-border);
+  --color-input-bg: var(--color-input-bg);
+  --color-input-border: var(--color-input-border);
 
-  --color-nav-bg:     var(--color-nav-bg);
+  --color-nav-bg: var(--color-nav-bg);
   --color-nav-border: var(--color-nav-border);
 
-  --color-card-bg:     var(--color-card-bg);
+  --color-card-bg: var(--color-card-bg);
   --color-card-border: var(--color-card-border);
 
-  --color-modal-bg:    var(--color-modal-bg);
+  --color-modal-bg: var(--color-modal-bg);
   --color-dropdown-bg: var(--color-dropdown-bg);
-  --color-tooltip-bg:  var(--color-tooltip-bg);
+  --color-tooltip-bg: var(--color-tooltip-bg);
 
-  --color-overlay:       var(--color-overlay);
+  --color-overlay: var(--color-overlay);
   --color-overlay-light: var(--color-overlay-light);
 
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
-  --color-error:   var(--color-error);
-  --color-info:    var(--color-info);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
 
-  --font-sans:    var(--font-sans);
-  --font-mono:    var(--font-mono);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
   --font-heading: var(--font-heading);
 
-  --radius-sm:   var(--radius-sm);
-  --radius-md:   var(--radius-md);
-  --radius-lg:   var(--radius-lg);
-  --radius-xl:   var(--radius-xl);
-  --radius-2xl:  var(--radius-2xl);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
   --radius-pill: var(--radius-pill);
 }
 
@@ -326,6 +337,7 @@
 
 /* Disable default cross-fade — our per-click keyframe overrides these */
 @media (prefers-reduced-motion: no-preference) {
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
@@ -335,6 +347,7 @@
 
 /* Honor reduced-motion: skip animation, instant switch */
 @media (prefers-reduced-motion: reduce) {
+
   ::view-transition-group(*),
   ::view-transition-image-pair(*),
   ::view-transition-old(*),
@@ -356,13 +369,14 @@
    The page-level theme switch uses a clip-path ripple overlay instead,
    so we do NOT apply blanket color transitions to every element —
    that would fight the ripple reveal. */
-a, button {
+a,
+button {
   transition:
-    background-color 150ms cubic-bezier(0.4,0,0.2,1),
-    border-color     150ms cubic-bezier(0.4,0,0.2,1),
-    color            120ms cubic-bezier(0.4,0,0.2,1),
-    box-shadow       150ms cubic-bezier(0.4,0,0.2,1),
-    opacity          150ms cubic-bezier(0.4,0,0.2,1);
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 120ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
@@ -391,8 +405,16 @@ body {
   scrollbar-width: thin;
   scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
 }
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--color-scrollbar-track); }
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-scrollbar-track);
+}
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-scrollbar-thumb);
   border-radius: var(--radius-pill);
@@ -400,7 +422,7 @@ body {
 
 /* ── Selection ── */
 ::selection {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   color: var(--color-text-primary);
 }
 
@@ -411,6 +433,11 @@ body {
 }
 
 /* ── Utility: hide scrollbar visually ── */
-.no-scrollbar::-webkit-scrollbar { display: none; }
-.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

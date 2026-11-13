@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { ThemeProvider } from './theme/ThemeProvider'
 import { Navbar } from './components/Navbar'
 import { HeroSection } from './components/sections/HeroSection'
@@ -9,10 +10,14 @@ import { PricingSection } from './components/sections/PricingSection'
 import { TestimonialsSection } from './components/sections/TestimonialsSection'
 import { CTASection } from './components/sections/CTASection'
 import { Footer } from './components/Footer'
+import { CinematicLoader } from './components/CinematicLoader'
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <ThemeProvider>
+      {loading && <CinematicLoader onLoadingComplete={() => setLoading(false)} />}
       <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
         <Navbar />
         <main>
